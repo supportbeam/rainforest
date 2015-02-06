@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  root 'products#index'
+  resources :products #generates the 7 RESTful routes
+
+end
+
+#7 RESTful Routes:
+
+  #1 get 'products/index' => 'products#index'
+
+  #2 post 'products' => 'products#create'
+
+  #3 get 'products/new' => 'products#new'
+
+  #4 get 'products/edit' => 'products#edit', as: 'edit_picture'
+
+  #5 get 'products/:id' => 'products#show', as 'product'
+
+  #6 patch 'products/:id' => 'products#update'
+  #6 put 'products/:id' => 'products#update'
+
+  #7 deltee 'products/:id' => 'products#destroy'
+
+####################
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +77,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
