@@ -5,14 +5,19 @@
 </p>
 
 <div>
-	<% @products.each do |product| %>
-	<h3>
-	<%= product.name %>
-	</h3>
-	<p>
-	Price: <%= product.price_in_cents %> CENTS<br>
-	Description: <%= product.description %><br>
-	<%= link_to 'More information', product_path(product.id) %>
-	</p>
-	<% end %>
+	<ol>
+		<% @products.each do |product| %>
+		<li>
+			<h3>
+				<%= product.name %>
+			</h3>
+			<p>
+				Price: <%= product.price_in_cents %> CENTS<br>
+				Description: <%= product.description %><br>
+				<%= link_to 'More information', product_path(product.id) %>
+			</p>
+			<br>
+		</li>
+		<% end %>
+	</ol>
 </div>
