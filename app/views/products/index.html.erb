@@ -12,7 +12,7 @@
 				<%= product.name %>
 			</h3>
 			<p>
-				Price: <%= product.price_in_cents %> CENTS<br>
+				Price: $<%= product.formatted_price %> <br>
 				Description: <%= product.description %><br>
 				<%= link_to 'More information', product_path(product.id) %>
 			</p>
