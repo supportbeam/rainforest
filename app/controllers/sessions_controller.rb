@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   		session[:user_id] = user.id #create key-value pair in session hash
   		redirect_to products_url, notice: "Logged in!" #after session key is assigned, redirect the the products index page
   	else
+  		flash.now[:alert] = "Invalid email or password"
   		render "new"
   	end
   end
@@ -18,5 +19,6 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
   	redirect_to products_url, notice: "Logged out!"
   end
+
 
 end
