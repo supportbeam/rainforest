@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   root 'products#index'
   resources :products #generates the 7 RESTful routes
-
+  resources :users, only: [:new, :create] # for the users controller, only create the new and create routes
+    # get 'users/new'
+    # get 'users/create'
 end
 
 #7 RESTful Routes:
