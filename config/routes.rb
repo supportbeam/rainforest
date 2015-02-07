@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] # for the users controller, only create the new and create routes
     # get 'users/new'
     # get 'users/create'
+  resource :sessions, only: [:new, :create, :destroy]
+    # get 'sessions/new'
+    # get 'sessions/create'
+    # get 'sessions/destroy'
 end
 
 #7 RESTful Routes:
