@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   private # private to not call the method anywhere else
   def user_params
-    params.require(:user).permit(:email , :password, :password_confirmation) #from the params hash, require the user key which has a value of a hash and only permit the keys email, password, and password_confirmation
+    params.require(:user).permit(:email , :password, :password_confirmation, :name) #from the params hash, require the user key which has a value of a hash and only permit the keys email, password, and password_confirmation
   end
   
 end

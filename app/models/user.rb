@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
 	# def authenticate
 	# 	secret
 	# end
+	
 	#validates :password, confirmation: true
 
+	validates :name, presence: true #ensure user inputs a name when they create a user
+
 	has_many :reviews
-	has_many :products, through: :reviews
+	has_many :products, through: :reviews 
 
 end
