@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  
+  before_filter :ensure_logged_in, only: [:create, :destroy]
 	before_filter :load_product
 	# to run before every action, let's call a load_product method that retrieves the appropriate product so a new review can be associated to it
 

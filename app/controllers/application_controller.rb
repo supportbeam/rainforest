@@ -21,7 +21,11 @@ class ApplicationController < ActionController::Base
   #
   def ensure_logged_in
   	unless current_user
-  		redirect_to products_url
+      flash[:alert] = "Please log in"
+      redirect_to new_sessions_path
+  		# redirect_to products_url
   	end
   end
+
+
 end
