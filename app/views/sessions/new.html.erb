@@ -2,16 +2,21 @@
 
 <!-- using a form_tag and not a form_for here. This is because there is no model associated with a session -->
 
+<!-- sessions_path calls the create aciton -->
 <%= form_tag sessions_path do %>
+
   <div class="field">
     <%= label_tag :email %><br/>
     <%= text_field_tag :email, params[:email] %>
   </div>
+
   <div class="field">
   	<%= label_tag :password %><br/>
   	<%= password_field_tag :password %>
   </div>
+
   <div class="actions">
   	<%= submit_tag "Log in" %>
   </div>
+
 <% end %>

@@ -1,31 +1,34 @@
 Rails.application.routes.draw do
 
   root 'products#index'
-  resources :products #generates the 7 RESTful routes
+
+  resources :products do #generates the 7 RESTful routes for products and do nested routes
+    resources :reviews, only: [:show, :create, :destroy] #Nested routes allow you to capture an associative relationship in your routing
+      # get 'reviews/show'
+      # get 'reviews/create'
+      # get 'reviews/destroy'
+  end
+
   resources :users, only: [:new, :create] # for the users controller, only create the new and create routes
     # get 'users/new'
     # get 'users/create'
   resource :sessions, only: [:new, :create, :destroy]
+  get 'login' => 'sessions#new', as: :login
     # get 'sessions/new'
     # get 'sessions/create'
     # get 'sessions/destroy'
+
+
 end
 
 #7 RESTful Routes:
-
   #1 get 'products/index' => 'products#index'
-
   #2 post 'products' => 'products#create'
-
   #3 get 'products/new' => 'products#new'
-
   #4 get 'products/edit' => 'products#edit', as: 'edit_picture'
-
   #5 get 'products/:id' => 'products#show', as 'product'
-
   #6 patch 'products/:id' => 'products#update'
   #6 put 'products/:id' => 'products#update'
-
   #7 deltee 'products/:id' => 'products#destroy'
 
 ####################
