@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  
+  # before_action :ensure_logged_in  
   before_filter :ensure_logged_in, only: [:create, :destroy]
 	before_filter :load_product
 	# to run before every action, let's call a load_product method that retrieves the appropriate product so a new review can be associated to it
@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
   	# @review = @product.reviews.build(review_params.merge(user: current_user))
+    # @product = Product.find(params[:product_id])
   	@review = @product.reviews.build(review_params)
     @review.user = current_user
   	# What is actually happening in build:
@@ -20,8 +21,9 @@ class ReviewsController < ApplicationController
     #   user_id: current_user.id
     # )
 		if @review.save
-			redirect_to products_path, notice: "Review created successfully"
+			redirect_to products_path(@product), notice: "Review created successfully"
 		else
+      flash.new[:alert] = "Error creating product. Please try again."
 			render "products/show"
 		end
   end

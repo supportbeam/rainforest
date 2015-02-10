@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :products do #generates the 7 RESTful routes for products and do nested routes
     resources :reviews, only: [:show, :create, :destroy] #Nested routes allow you to capture an associative relationship in your routing
-      # get 'reviews/show'
-      # get 'reviews/create'
-      # get 'reviews/destroy'
+      # get 'prodcuts/:id/reviews/show'
+      # get 'products/:id/reviews/create'
+      # get 'products/:id/reviews/destroy'
   end
 
   resources :users, only: [:new, :create] # for the users controller, only create the new and create routes

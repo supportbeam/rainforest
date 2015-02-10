@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to products_url, notice: "Signed up!"
+      redirect_to products_url, notice: "Signed up!" 
     else
-      render "new"
+      render "new", alert: "Please try again." #allows to pass along a msg to the next request
     end
   end
 

@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def show
   	@product = Product.find(params[:id])
+    @reviews = @product.reviews
     if current_user
       @review = @product.reviews.build
     end
@@ -13,9 +14,10 @@ class ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
-  	if @product.save
-  		redirect_to products_url
+  	if @product.save #goes through validation process before saving
+  		redirect_to products_url, notice: "Product successfully save!"
   	else
+      flash.new[:alert] = "Error saving product"
   		render :new
   	end
   end

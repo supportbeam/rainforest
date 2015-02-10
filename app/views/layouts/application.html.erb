@@ -8,7 +8,9 @@
   </head>
 
   <body>
-<!-- display notices or alerts whenever available. The application view is appropriate because we only have to write this code once and it can be reused across all views. -->
+<!-- display notices or alerts whenever available. The application view is appropriate because we only have to write this code once and it can be reused across all views. 
+If a notice key in the flash hash exists, display the value. If an alert key in the flash hash exists, display the value.
+-->
   	<% if flash[:notice] %>
       <p id="notice"><%= flash[:notice] %></p>
   	<% end %>
