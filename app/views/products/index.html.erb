@@ -4,20 +4,13 @@
 	<%= link_to "Add a New Product ", "/products/new" %>
 </p>
 
-<div>
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="products">
 	<ol>
-		<% @products.each do |product| %>
-		<li>
-			<h3>
-				<%= product.name %>
-			</h3>
-			<p>
-				Price: $<%= product.formatted_price %> <br>
-				Description: <%= product.description %><br>
-				<%= link_to 'More information', product_path(product.id) %>
-			</p>
-			<br>
-		</li>
-		<% end %>
+  	<%= render @products %>
 	</ol>
-</div>
+</div> 
