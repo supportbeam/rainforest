@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
       Product.all
     end
 
+    @products = @products.order(created_at: :desc).page(params[:page])
+
     respond_to do |format|
       format.html
       format.js
