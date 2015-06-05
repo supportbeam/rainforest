@@ -1,0 +1,16 @@
+<% if @product.reviews.count >= 1 %>
+  <% @product.reviews.each do |review| %>
+    <li class="review">
+      <p class="comment">
+        <%= review.comment %><br />
+      </p>
+      <% unless review.user.nil? %>
+        <p class="poster">
+          <em>Authored by <%= review.user.name %></em>
+        Added on: <%= review.created_at %>
+      <% end %>
+    </li>
+  <% end %>
+<% else %>
+  <p>There are no reviews yet.</p> 
+<% end %>
